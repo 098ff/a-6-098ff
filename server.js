@@ -1,11 +1,16 @@
 const express = require('express');
 const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
 const connectDB = require("./config/db");
 
 dotenv.config({path: './config/config.env'});
 const app = express();
 
-app.use(express.json()); // Body parser
+// Body parser
+app.use(express.json());
+
+// Cookie parser
+app.use(cookieParser());
 
 connectDB();
 
